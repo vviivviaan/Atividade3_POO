@@ -4,6 +4,8 @@ public class Main {
         Entrada entrada = new Entrada();
         sistema.carregarDados("dados.txt");
 
+        // sistema.listarTurmas();
+
         int opcao;
         do {
             opcao = entrada.menu();
@@ -28,4 +30,5 @@ public class Main {
             }
         } while (opcao != 0);
     }
+    
 }

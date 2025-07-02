@@ -18,7 +18,7 @@ public class Trabalho extends Avaliacao {
             }
         }
         return 0;
-}
+    }
 
     public int getNItegrantes(){
         return nIntegrantes;
@@ -27,3 +27,4 @@ public class Trabalho extends Avaliacao {
     public GrupoTrabalho[] getGrupos(){
         return grupos;
     }
+}

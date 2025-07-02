@@ -8,12 +8,12 @@ public class Turma {
     private ArrayList<Aluno> alunos;
     private ArrayList<Avaliacao> avs;
 
-    public Turma(String nome, int ano, int sem, Professor prof) {
+    public Turma(String nome, int ano, int sem, Professor prof, ArrayList<Aluno> alunos) {
         this.nome = nome;
         this.ano = ano;
         this.sem = sem;
         this.prof = prof;
-        this.alunos = new ArrayList<>();
+        this.alunos = alunos;
         this.avs = new ArrayList<>();
     }
 
