@@ -25,13 +25,25 @@ public class Entrada {
     }
 
     private int lerInteiro(String msg) {
-        String linha = this.lerLinha(msg);
-        return Integer.parseInt(linha);
+        while (true){
+            try{
+                String linha = this.lerLinha(msg);
+                return Integer.parseInt(linha);
+            } catch (NumberFormatException e) {
+                System.out.println("Numero invalido. Insira um numero inteiro.");
+            }
+        }
     }
 
     private double lerDouble(String msg) {
-        String linha = this.lerLinha(msg);
-        return Double.parseDouble(linha);
+        while (true) {
+            try {
+                String linha = this.lerLinha(msg);
+                return Double.parseDouble(linha);
+            } catch (NumberFormatException e) {
+                System.out.println("Número invalido. Insira um numero valido.");
+            }
+        }
     }
 
     public int menu() {

@@ -8,7 +8,14 @@ public class Turma {
     private ArrayList<Aluno> alunos;
     private ArrayList<Avaliacao> avs;
 
-    //IMPLEMENTAR SISTEMA DE MEDIAS DA TURMA KKKKK ALOKA MIGA
+    public Turma(String nome, int ano, int sem, Professor prof) {
+        this.nome = nome;
+        this.ano = ano;
+        this.sem = sem;
+        this.prof = prof;
+        this.alunos = new ArrayList<>();
+        this.avs = new ArrayList<>();
+    }
 
     public String getNome(){
         return nome;
@@ -32,5 +39,42 @@ public class Turma {
 
     public ArrayList<Avaliacao> getAvs(){
         return avs;
+    }
+
+    public void adicionarAvaliacao(Avaliacao av) {
+        avs.add(av);
+    }
+
+    @Override
+    public int compareTo(Turma outra){
+        if (this.ano != outra.ano) return outra.ano - this.ano;
+        if (this.sem != outra.sem) return outra.sem - this.sem;
+
+        int compNome = this.nome.compareTo(outra.nome);
+        if (compNome != 0) return compNome;
+
+        return this.prof.getNome().compareTo(outra.prof.getNome());
+    }
+
+    public double mediaFinal(Aluno a){
+        double total = 0;
+        for (Avaliacao av : avs) {
+            total += av.nota(a.getCpf());
+        }
+        return total;
+    }
+
+    public void ordenarAlunos(){
+        alunos.sort((a1, a2) -> {
+            double nota1 = mediaFinal(a1);
+            double nota2 = mediaFinal(a2);
+
+            if (nota1 != nota2) return Double.compare(nota2, nota1);
+
+            int nomeComp = a1.getNome().compareTo(a2.getNome());
+            if (nomeComp != 0) return nomeComp;
+
+            return a1.getMatricula().compareTo(a2.getMatricula());
+        });
     }
 }
