@@ -3,8 +3,7 @@ public class Main {
         Sistema sistema = new Sistema();
         Entrada entrada = new Entrada();
         sistema.carregarDados("dados.txt");
-
-        // sistema.listarTurmas();
+        sistema.listarTurmas();
 
         int opcao;
         do {

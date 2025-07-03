@@ -77,6 +77,8 @@ public class Sistema{
 
             double mediaTurma = t.getAlunos().isEmpty() ? 0 : somaNotas / t.getAlunos().size();
             System.out.printf("Media da turma: %.2f\n", mediaTurma);
+
+            System.out.println();
         }
     }
 

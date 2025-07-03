@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Turma {
+public class Turma implements Comparable<Turma> {
     private String nome;
     private int ano;
     private int sem;
@@ -47,8 +47,13 @@ public class Turma {
 
     @Override
     public int compareTo(Turma outra){
-        if (this.ano != outra.ano) return outra.ano - this.ano;
-        if (this.sem != outra.sem) return outra.sem - this.sem;
+        if (this.ano != outra.ano){
+            return outra.ano - this.ano;
+        } 
+        if (this.sem != outra.sem){
+            return outra.sem - this.sem;
+        }
+         
 
         int compNome = this.nome.compareTo(outra.nome);
         if (compNome != 0) return compNome;
