@@ -45,6 +45,7 @@ public class Turma implements Comparable<Turma> {
         avs.add(av);
     }
 
+    //usado para comparar as notas 
     @Override
     public int compareTo(Turma outra){
         if (this.ano != outra.ano){
@@ -61,6 +62,7 @@ public class Turma implements Comparable<Turma> {
         return this.prof.getNome().compareTo(outra.prof.getNome());
     }
 
+    //calcula media final do alno
     public double mediaFinal(Aluno a){
         double total = 0;
         for (Avaliacao av : avs) {
@@ -69,6 +71,7 @@ public class Turma implements Comparable<Turma> {
         return total;
     }
 
+    //ordena os alunos por nota
     public void ordenarAlunos(){
         alunos.sort((a1, a2) -> {
             double nota1 = mediaFinal(a1);
