@@ -60,28 +60,34 @@ public class Sistema{
 
     // .......................................................
 
-    public void listarTurmas(){
-        turmas.sort(null);
-        
-        for (Turma t : turmas) {
-            System.out.println("Media da Turma " + t.getNome() + " (" + t.getAno() + "/" + t.getSem() + "):");
+public void listarTurmas() {
+    turmas.sort(null);
 
-            t.ordenarAlunos();
-            double somaNotas = 0;
+    for (Turma t : turmas) {
+        System.out.println(); //pular a linha p ficar main bunitin
+        System.out.println("Médias da Turma " + t.getNome() + " (" + t.getAno() + "/" + t.getSem() + "):");
 
-            for (Aluno a : t.getAlunos()) {
-                double notaFinal = t.mediaFinal(a);
-                System.out.printf("%s: %.1f\n", a.toString(), notaFinal);
-                somaNotas += notaFinal;
+        t.ordenarAlunos();
+        double somaNotas = 0;
+
+        for (Aluno a : t.getAlunos()) {
+            double notaFinal = 0;
+            StringBuilder notasStr = new StringBuilder();
+
+            for (Avaliacao av : t.getAvs()) {
+                double notaAv = av.nota(a.getCpf());
+                notasStr.append(String.format("%.1f ", notaAv));
+                notaFinal += notaAv;
             }
 
-            double mediaTurma = t.getAlunos().isEmpty() ? 0 : somaNotas / t.getAlunos().size();
-            System.out.printf("Media da turma: %.2f\n", mediaTurma);
-
-            System.out.println();
+            System.out.printf("%s: %s= %.1f\n", a.toString(), notasStr.toString(), notaFinal);
+            somaNotas += notaFinal;
         }
+        double mediaTurma = t.getAlunos().isEmpty() ? 0 : somaNotas / t.getAlunos().size();
+        System.out.printf("Média da Turma: %.2f\n\n", mediaTurma); // quebra de linha entre turmas
     }
-
+        
+}
     // metodo para carregar dados
 
     public void carregarDados(String caminho){
