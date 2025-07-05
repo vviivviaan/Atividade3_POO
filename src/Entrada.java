@@ -3,6 +3,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe com as rotinas de entrada e saída do projeto
+ * @author Hilario Seibel Junior, Sofia Nascimento da Silva e Vivian Moreira Gomes de Lacerda
+ */
+
+
 public class Entrada {
     public Scanner input;
 
